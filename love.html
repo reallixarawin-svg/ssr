@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffeef8;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            color: #d63384;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 10;
+            max-width: 400px;
+        }
+
+        h1 { margin-bottom: 10px; }
+        p { font-size: 1.1rem; }
+
+        .heart-btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* เอฟเฟกต์หัวใจลอย */
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            color: #ffb3c1;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Happy Valentine's Day! 💖</h1>
+        <p>ยินดีด้วยที่คุณคือคนพิเศษของผม/ฉัน!</p>
+        <p>ขอให้วันนี้เต็มไปด้วยรอยยิ้มนะ</p>
+        <button class="heart-btn" onclick="alert('รักนะจุ๊บๆ! 🌹')">ส่งความรัก</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
